@@ -13,3 +13,8 @@ npm install bcryptjs
 npm install shortid 
 
 npm install --save-dev nodemon
+
+
+frontend:
+npm install bootstrap
+npm install react-router-dom

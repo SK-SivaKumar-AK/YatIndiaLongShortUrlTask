@@ -68,15 +68,38 @@ const readUrl = async (req , res) => {
     }
 };
 
+const deleteUrl = async (req , res) => {
+    try {
+        
+        const Id = req.params.id;
+
+        const deletedInfo = await urlTable.findOneAndDelete({_id : Id});
+        
+        return res.status(200).json({
+            Result : true,
+            Message : 'Deleted SuccessFully!',
+            data : deletedInfo
+        });
+    
+    } catch (error) {
+        
+        return res.status(404).json({
+            Result : false,
+            Message : error.message
+        });
+    
+    }
+};
+
 const readLongUrl = async (req , res) => {
     try {
         
         const userId = req.userId;
         const shortUrl  = req.params.url;
-
+        
         const readLongUrl = await urlTable.find({userId : userId , shortUrl : shortUrl});
         
-        res.redirect(readLongUrl.data[0].longUrl);
+        res.redirect(readLongUrl[0].longUrl);
         // return res.status(200).json({
         //     Result : true,
         //     Message : 'Read SuccessFully!',
@@ -98,5 +121,6 @@ const readLongUrl = async (req , res) => {
 module.exports = {
     addUrl,
     readUrl,
+    deleteUrl,
     readLongUrl
 }

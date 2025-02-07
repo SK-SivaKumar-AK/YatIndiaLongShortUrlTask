@@ -111,6 +111,29 @@ const userLogin = async (req , res) => {
     }
 }
 
+const getUser = async (req , res) => {
+    try {
+        
+        const userId = req.userId;
+
+        const readUrl = await userTable.find({userId : userId});
+
+        return res.status(200).json({
+            Result : true,
+            Message : 'Read SuccessFully!',
+            data : readUrl
+        });
+    
+    } catch (error) {
+        
+        return res.status(404).json({
+            Result : false,
+            Message : error.message
+        });
+    
+    }
+};
+
 const userLogout = (req , res) => {
     try {
 
@@ -143,5 +166,6 @@ const userLogout = (req , res) => {
 module.exports = {
     userSignin,
     userLogin,
+    getUser,
     userLogout
 }
