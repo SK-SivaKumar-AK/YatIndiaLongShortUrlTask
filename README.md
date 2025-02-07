@@ -25,3 +25,9 @@ npm install react-toastify
 
 #1 npm install package in local.
 #2 cd /frontend and run -> npm start
+
+
+
+step1 : register with email and password
+step2 : Login with credentials
+step3 : add and redirect the URLs
