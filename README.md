@@ -18,3 +18,4 @@ npm install --save-dev nodemon
 frontend:
 npm install bootstrap
 npm install react-router-dom
+npm install react-toastify
