@@ -98,8 +98,12 @@ const readLongUrl = async (req , res) => {
         const shortUrl  = req.params.url;
         
         const readLongUrl = await urlTable.find({shortUrl : shortUrl});
+        if(readLongUrl && readLongUrl.length > 0){
+            res.redirect(readLongUrl[0].longUrl);
+        }else{
+            res.status(404).send('URL not found');
+        }
         
-        res.redirect(readLongUrl[0].longUrl);
         // return res.status(200).json({
         //     Result : true,
         //     Message : 'Read SuccessFully!',
