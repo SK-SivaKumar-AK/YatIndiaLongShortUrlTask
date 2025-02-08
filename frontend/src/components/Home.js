@@ -163,12 +163,11 @@ const Home = () => {
                 </div>
             </div>
             <div className="row justify-content-center mt-4">
-            <div className="col-md-8">
+            <div className="col-md-6">
                 <table className="table table-bordered">
                     <thead>
                         <tr>
                             <th scope="col">S.No</th>
-                            <th scope="col">Long URL</th>
                             <th scope="col">Short URL</th>
                             <th scope="col">Actions</th>
                         </tr>
@@ -181,7 +180,6 @@ const Home = () => {
                                 return(
                                     <tr key={item._id}>
                                         <th scope="row">{index + 1}</th>
-                                        <td>{item.longUrl}</td>
                                         <td>{`${process.env.REACT_APP_BASE_URL}/${item.shortUrl}`}</td>
                                         <td>
                                             <button className="btn btn-success" onClick={() => handleCopy(`${process.env.REACT_APP_BASE_URL}/${item.shortUrl}`)} >
