@@ -9,7 +9,7 @@ const { jwtAuthenticate } = require('../middlewares/jwt.middleware')
 urlsRouter.route('/addurl').post(jwtAuthenticate , addUrl);
 urlsRouter.route('/readurl').get(jwtAuthenticate , readUrl);
 urlsRouter.route('/deleteurl/:id').delete(jwtAuthenticate , deleteUrl);
-urlsRouter.route('/:url').get(jwtAuthenticate , readLongUrl);
+urlsRouter.route('/:url').get( readLongUrl);
 
 
 

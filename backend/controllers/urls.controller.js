@@ -94,10 +94,10 @@ const deleteUrl = async (req , res) => {
 const readLongUrl = async (req , res) => {
     try {
         
-        const userId = req.userId;
+        
         const shortUrl  = req.params.url;
         
-        const readLongUrl = await urlTable.find({userId : userId , shortUrl : shortUrl});
+        const readLongUrl = await urlTable.find({shortUrl : shortUrl});
         
         res.redirect(readLongUrl[0].longUrl);
         // return res.status(200).json({
